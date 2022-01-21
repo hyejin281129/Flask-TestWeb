@@ -6,3 +6,5 @@ BASE_DIR = os.path.dirname(__file__)
 SQLALCHEMY_DATABASE_URI =  'sqlite:///{}'.format(os.path.join(BASE_DIR, 'pybo.db'))
 # SQLAlchemy의 이벤트를 처리하는 옵션
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+# 플라스크 환경 변수
+SECRET_KEY = "dev"
