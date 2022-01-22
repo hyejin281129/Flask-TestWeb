@@ -3,7 +3,7 @@ from flask import Blueprint, url_for, request, render_template, g
 from werkzeug.utils import redirect
 
 from .. import db
-from ..forms import AnswerForm 
+from ..forms import AnswerForm, QuestionForm 
 from ..models import Question, Answer
 
 # 데코레이션 함수 적용
@@ -26,4 +26,5 @@ def create(question_id):
         db.session.commit()
         return redirect(url_for('question.detail', question_id=question_id))
     return render_template('question/question_detail.html', question=question, form=form)
+
 

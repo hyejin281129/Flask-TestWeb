@@ -10,6 +10,8 @@ class Question(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
   # Question 모델에서 User모델을 참조함
   user = db.relationship('User', backref=db.backref('question_set'))
+  # 수정 확인
+  modify_date = db.Column(db.DateTime(), nullable=True)
 
 # Answer 클래스
 class Answer(db.Model):
@@ -20,6 +22,7 @@ class Answer(db.Model):
   create_date = db.Column(db.DateTime(), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
   user = db.relationship('User', backref=db.backref('answer_set'))
+  modify_date = db.Column(db.DateTime(), nullable=True)
 
 # User 클래스
 class User(db.Model):
