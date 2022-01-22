@@ -24,3 +24,7 @@ class UserCreateForm(FlaskForm):
 class UserLoginForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired('사용자의 이름을 입력해주세요'), Length(min=3, max=25)])
     password = PasswordField('비밀번호', validators=[DataRequired('비밀번호를 입력해주세요')])
+
+# 댓글 폼
+class CommentForm(FlaskForm):
+    content = TextAreaField('내용', validators=[DataRequired('댓글을 입력해주세요')])
