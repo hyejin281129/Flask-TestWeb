@@ -102,39 +102,56 @@
     <!-- ------------------------------ answer ------------------------------ -->
     <h5 class="border-bottom my-3 py-2">{{ question.answer_set|length }}개의 답변이 있습니다.</h5>
     {% for answer in question.answer_set %}
-    <div class="card my-3">
-        <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
-            <div class="d-flex justify-content-end">
-                <!-- 댓글 수정일자 -->
-                {% if answer.modify_date %}
-                <div class="badge badge-light p-2 text-left mx-3">
-                    <div class="mb-2">수정 날짜</div>
-                    <div>{{ answer.create_date|datetime }}</div>
-                </div>
-                {% endif %}
-                <!-- 댓글 작성일자 -->
-                <div class="badge badge-light p-2 text-left">
-                    <div class="mb-2">{{ answer.user.username }}</div>
-                    <div>{{ answer.create_date|datetime }}</div>
+    <div class="row my-3">
+        <!-- 댓글 추천 -->
+        <div class="col-1">
+            <div class="bg-light text-center p-3 border font-weight-bolder mb-1">
+                {{ answer.voter|length }}
+            </div>
+            <a
+                href="#"
+                class="recommend btn btn-sm btn-secomdary btn-block my-1"
+                data-uri="{{ url_for('vote.answer', answer_id=answer.id) }}"
+            >추천
+            </a>
+        </div>
+        <!-- 댓글 --> 
+        <div class="col-11">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
+                    <div class="d-flex justify-content-end">
+                        <!-- 댓글 수정일자 -->
+                        {% if answer.modify_date %}
+                        <div class="badge badge-light p-2 text-left mx-3">
+                            <div class="mb-2">수정 날짜</div>
+                            <div>{{ answer.create_date|datetime }}</div>
+                        </div>
+                        {% endif %}
+                        <!-- 댓글 작성일자 -->
+                        <div class="badge badge-light p-2 text-left">
+                            <div class="mb-2">{{ answer.user.username }}</div>
+                            <div>{{ answer.create_date|datetime }}</div>
+                        </div>
+                    </div>
+                    {% if g.user == answer.user %}
+                    <!-- 답변 수정 / 삭제 -->
+                    <div class="my-3">
+                        <a
+                            href="{{ url_for('answer.modify', answer_id=answer.id) }}"
+                            class="btn btn-sm btn-outline-secondary">
+                            수정
+                        </a>
+                        <a
+                            href="#"
+                            class="delete btn btn-sm btn-outline-secondary"
+                            data-uri="{{ url_for('answer.delete', answer_id=answer.id) }}">
+                            삭제
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
-            {% if g.user == answer.user %}
-            <!-- 답변 수정 / 삭제 -->
-            <div class="my-3">
-                <a
-                    href="{{ url_for('answer.modify', answer_id=answer.id) }}"
-                    class="btn btn-sm btn-outline-secondary">
-                    수정
-                </a>
-                <a
-                    href="#"
-                    class="delete btn btn-sm btn-outline-secondary"
-                    data-uri="{{ url_for('answer.delete', answer_id=answer.id) }}">
-                    삭제
-                </a>
-            </div>
-            {% endif %}
         </div>
     </div>
     {% endfor %}
