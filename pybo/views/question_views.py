@@ -7,6 +7,8 @@ from .. import db
 from ..models import Question
 # 질문을 등록하기 위해 사용할 플라스크 폼
 from ..forms import QuestionForm, AnswerForm
+# 데코레이션 함수 적용
+from pybo.views.auth_views import login_required
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
@@ -27,6 +29,7 @@ def detail(question_id):
 
 
 @bp.route('/create/', methods=('GET', 'POST'))
+@login_required
 def create():
     form = QuestionForm()
     # 폼 데이터를 db에 저장

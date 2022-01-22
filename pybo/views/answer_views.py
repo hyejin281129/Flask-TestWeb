@@ -6,12 +6,14 @@ from .. import db
 from ..forms import AnswerForm 
 from ..models import Question, Answer
 
-
+# 데코레이션 함수 적용
+from pybo.views.auth_views import login_required
 
 bp = Blueprint('answer', __name__, url_prefix='/answer')
 
 
 @bp.route('/create/<int:question_id>', methods=('POST',))
+@login_required
 def create(question_id):
     # 답병 등록 폼
     form = AnswerForm()
