@@ -27,7 +27,7 @@
         <div class="col-11">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-text" style="white-space: pre-line;">{{ question.content }}</div>
+                    <div class="card-text">{{ question.content|markdown }}</div>
                     <div class="d-flex justify-content-end">
                         <!-- 게시글 수정일자 -->
                         {% if question.modify_date %}
@@ -123,7 +123,7 @@
         <div class="col-11">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
+                    <div class="card-text">{{ answer.content|markdown }}</div>
                     <div class="d-flex justify-content-end">
                         <!-- 댓글 수정일자 -->
                         {% if answer.modify_date %}
