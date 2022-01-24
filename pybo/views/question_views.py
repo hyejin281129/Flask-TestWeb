@@ -2,9 +2,10 @@ from datetime import datetime
 
 from flask import Blueprint, render_template, request, url_for, g, flash
 from werkzeug.utils import redirect
+from sqlalchemy import func
 
 from .. import db
-from ..models import Question, Answer, User
+from ..models import Question, Answer, User, question_voter
 # 질문을 등록하기 위해 사용할 플라스크 폼
 from ..forms import QuestionForm, AnswerForm
 # 데코레이션 함수 적용
@@ -20,9 +21,25 @@ def _list():
     # 입력 파라미터
     page = request.args.get('page', type=int, default=1)
     kw = request.args.get('kw', type=str, default='')
+    so = request.args.get('so', type=str, default='recent')
+
+    # 정렬
+    if so == 'recommend':
+        sub_query = db.session.query(question_voter.c.question_id, func.count('*').label('num_voter')) \
+            .group_by(question_voter.c.question_id).subquery()
+        question_list = Question.query \
+            .outerjoin(sub_query, Question.id == sub_query.c.question_id) \
+            .order_by(sub_query.c.num_voter.desc(), Question.create_date.desc())
+    elif so == 'popular':
+        sub_query = db.session.query(Answer.question_id, func.count('*').label('num_answer')) \
+            .group_by(Answer.question_id).subquery()
+        question_list = Question.query \
+            .outerjoin(sub_query, Question.id == sub_query.c.question_id) \
+            .order_by(sub_query.c.num_answer.desc(), Question.create_date.desc())
+    else:  # recent
+        question_list = Question.query.order_by(Question.create_date.desc())
 
     # 조회
-    question_list = Question.query.order_by(Question.create_date.desc())
     if kw:
         search = '%%{}%%'.format(kw)
         sub_query = db.session.query(Answer.question_id, Answer.content, User.username) \
@@ -40,7 +57,7 @@ def _list():
 
     # 페이징
     question_list = question_list.paginate(page, per_page=10)
-    return render_template('question/question_list.html', question_list=question_list, page=page, kw=kw)
+    return render_template('question/question_list.html', question_list=question_list, page=page, kw=kw, so=so)
 
 
 
