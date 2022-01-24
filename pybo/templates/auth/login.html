@@ -1,20 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container my-3">
-    <form method="post" class="post-form">
-        {{ form.csrf_token }}
-        {% include "form_errors.html" %}
-        <div class="form-group">
-            <label for="username">사용자 이름</label>
-            <input type="text" class="form-control" name="username" id="username"
-                   value="{{ form.username.data or '' }}">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css')}}" />
+</head>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- 로그인 내용 -->
+                    <div class="row">
+                        <!-- 오른쪽 이미지-->
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            <div class="login-photo">
+                                <img src="" alt="이미지 없음">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <main>
+                                <div class="logo"><a href="introduction.html"><img src="img/logo.png"></a></div>
+                                <article>
+                                    <div class="login_id">
+                                        <input type="text" placeholder="ID" class="idValue">
+                                    </div>
+                                    <div class="login_password">
+                                        <input type="password" placeholder="PW" class="passwordValue">
+                                    </div>
+                                    <div>
+                                        <a href="mypage_favorites.html"><button class="login_btn">LOGIN</button></a>
+                                    </div>
+                                </article>
+                                <div class="social-login">
+                                    <hr class="leftHr">
+                                    <div class="social-text">SOCIAL LOGIN</div>
+                                    <hr class="rightHr">
+                                </div>
+                                <div class="social-menu">
+                                    <ul class="social">
+                                        <li><i class="bi bi-facebook"></i></li>
+                                            <div class="g-signin2 google-login" data-onsuccess="onSignIn"></div>
+                                        <li><i class="bi bi-twitter"></i></li>
+                                    </ul>
+                        
+                                </div>
+                                <div class="social-footer">
+                                    <a href="">Did you forget the password?</a>
+                                </div>
+                            </main>
+                        
+                            <div class="login-footer">
+                                <div class="login-footer-contents">
+                                    <p>Don't you have an account?</p>
+                                    <a href="join.html">JOIN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">비밀번호</label>
-            <input type="password" class="form-control" name="password" id="password"
-                   value="{{ form.password.data or '' }}">
-        </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
-    </form>
+    </div>
 </div>
 {% endblock %}

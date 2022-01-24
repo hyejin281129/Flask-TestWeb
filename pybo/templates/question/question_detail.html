@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include "navbar.html" %}
 <div class="container my-3">
     <!-- 본인 게시글 추천 시 오류 -->
     {% for message in get_flashed_messages() %}
