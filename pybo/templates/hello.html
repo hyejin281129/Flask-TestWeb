@@ -1,11 +1,24 @@
-{% extends 'base.html' %}
-{% block content %}
-<input id="roundToggle" class="hide" type="checkbox">
-<div class="inner">
-    <div class="geduri"> 
-    <h1 class="geduri-text">GEDULI</h1>
-    <label class="btn-round" for="roundToggle"></label> 
-    <div class="round">
-    </div>
-</div>
-{% endblock %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}" />
+
+    <title>GEDURI</title>
+  </head>
+  <body>
+    <input id="roundToggle" class="hide" type="checkbox" hidden>
+    <div class="inner">
+      <div class="geduri"> 
+        <a class="geduri-text" href="{{ url_for('question._list') }}">게두리</a>
+        <label class="btn-round" for="roundToggle" /></label> 
+        <div class="round">
+        </div>
+      </div>
+
+  </body>
+  <script src="{{ url_for('static', filename='js/home.js')}}" type="module"></script>
+</html>

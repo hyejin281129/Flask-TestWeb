@@ -1,9 +1,28 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
 /* textarea {
     width:100%;
 }
 input[type=submit] {
     margin-top:10px;
 } */
+
+/* 메인폰트 */
+*{
+    font-family: 'NanumBarunGothic';
+}
+
+a{
+    color:black;
+    text-decoration: none;
+    background-color: transparent;
+}
 
 .comment {
     border-top:dotted 1px #ddd;

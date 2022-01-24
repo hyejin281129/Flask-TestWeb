@@ -5,11 +5,14 @@ from werkzeug.utils import redirect
 
 bp = Blueprint('main', __name__, url_prefix='/')
 
-@bp.route('/hello')
-def hello():
-  # return 'Hello, Pybo!'
-  return render_template(url_for('hello.html'))
+# @bp.route('/hello')
+# def hello():
+#   # return 'Hello, Pybo!'
+#   return render_template('hello.html')
+
+
 
 @bp.route('/')
 def index():
-  return redirect(url_for('question._list'))
+  return render_template('hello.html')
+  # return redirect(url_for('question._list'))
