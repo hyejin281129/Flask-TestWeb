@@ -28,3 +28,54 @@ a{
     border-top:dotted 1px #ddd;
     font-size:0.7em;
 }
+
+/* 로고 */
+.navbar-brand {
+    background-image: url("img/logo.png");
+    width: 100px;
+    height: 50px;
+    background-size: cover;
+}
+
+/* question banner */
+.masthead {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #401803;
+    background-image: url("img/question-banner.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/* 배너용 */
+@font-face {
+    font-family: 'Manse';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Manse.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.mastead-subheading {
+    font-family: 'Manse';
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+.mastead-heading {
+    font-family: 'Manse';
+    color: rgb(148, 103, 103);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2rem;
+}
+
+@media (min-width: 768px){
+    .mastead-hiddensbheading {
+        display: none;
+    }
+}
+

@@ -16,3 +16,7 @@ bp = Blueprint('main', __name__, url_prefix='/')
 def index():
   return render_template('hello.html')
   # return redirect(url_for('question._list'))
+
+@bp.route('/main')
+def main():
+  return render_template('main/main.html')
