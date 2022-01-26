@@ -24,3 +24,7 @@ def main():
 @bp.route('/introduce')
 def introduce():
   return render_template('main/introduce.html')
+
+@bp.route('/about')
+def about():
+  return render_template('main/about.html')
