@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% include "navbar.html" %}
-<div class="container my-3">
+<div class="container my-3 mt-5 pt-5">
     <!-- 배너 -->
     {% include "banner/banner.html" %}
     <!-- 검색기능 -->
@@ -91,7 +91,7 @@
                 </li>
                 {% else %}
                 <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">{{ page_num }}</a>
+                    <a class="page-link" style="background-color: #343a40; border-color: #454d55;" href="#">{{ page_num }}</a>
                 </li>
                 {% endif %}
            {% else %}
@@ -112,7 +112,7 @@
         {% endif %}
     </ul>
     <!-- 페이징처리 끝 -->
-    <a href="{{ url_for('question.create') }}" class="btn btn-primary">질문 등록하기</a>
+    <!-- <a href="{{ url_for('question.create') }}" class="btn btn-secondary ">질문 등록하기</a> -->
 </div>
 <!-- 검색 form 엘리먼트 -->
 <form id="searchForm" method="get" action="{{ url_for('question._list') }}">
