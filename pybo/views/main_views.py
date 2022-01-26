@@ -20,3 +20,7 @@ def index():
 @bp.route('/main')
 def main():
   return render_template('main/main.html')
+
+@bp.route('/introduce')
+def introduce():
+  return render_template('main/introduce.html')

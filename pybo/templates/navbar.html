@@ -1,19 +1,25 @@
 <!-- 네비게이션바 -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: none;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(0,0,0,0.5);">
     <!-- <a class="nav-link navbar-brand" href="{{ url_for('main.main') }}"></a> -->
-    <a class="navbar-brand" href="#">게두리</a>
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarNav">
-        <!-- <ul>
-           <li>히히1</li>
-           <li>히히2</li>
-           <li>히히3</li> 
-        </ul> -->
+    <a class="navbar-brand text-light" href="{{ url_for('main.main') }}">게두리</a>
+    <div class="collapse navbar-collapse ml-auto justify-content-center" style="margin-right: 65.59px;">
+        <ul class="header_nav nav justify-content-center">
+           <li class="nav-item active ">
+                <a class="nav-link text-light" href="{{ url_for('main.introduce') }}">소개</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-light" href="#">연혁</a>
+             </li>
+             <li class="nav-item active">
+                <a class="nav-link text-light" href="{{ url_for('question._list') }}">공지사항</a>
+             </li>
+        </ul>
+    </div>
+
+    
+    <!-- 상단미니바 -->
+    <div class="header_util collapse navbar-collapse ml-auto justify-content-end" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <a class="nav-link" href="{{ url_for('question._list') }}">게시판</a>
             <li class="nav-item dropdown no-arrow">
                 <a 
                     class="nav-link dropdown-toggle"

@@ -47,6 +47,29 @@ a{
     /* background-size: cover; */
 }
 
+/* 좌상단 메뉴 */
+.header_util {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    font-size:0.8rem;
+}
+
+/* 중앙메뉴 */
+.header_nav{
+    font-size:1.3rem;
+}
+
+.header_nav li{
+    margin-left:3rem;
+    margin-right:3rem;
+}
+
+.header_nav li a {
+    font-family: 'KOTRAHOPE';
+    text-align: center;
+}
+
 /* question banner */
 .masthead {
     padding-top: 3rem;
@@ -89,3 +112,22 @@ a{
     }
 }
 
+
+/* main */
+.main-caption {
+    position: absolute;
+    right: 15%;
+    top: 100px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/* 메인 슬라이드 내용 */
+.main-caption-title {
+    text-align: left;
+    font-size:5rem;
+}
