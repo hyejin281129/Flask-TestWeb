@@ -6,6 +6,14 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
 
+/* 로고 폰트 */
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* textarea {
     width:100%;
 }
@@ -31,10 +39,12 @@ a{
 
 /* 로고 */
 .navbar-brand {
-    background-image: url("img/logo.png");
-    width: 100px;
-    height: 50px;
-    background-size: cover;
+    font-family: 'KOTRAHOPE';
+    font-size:2rem;
+    /* background-image: url("img/logo.png"); */
+    /* width: 100px; */
+    /* height: 50px; */
+    /* background-size: cover; */
 }
 
 /* question banner */
