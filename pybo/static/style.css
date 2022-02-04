@@ -234,7 +234,7 @@ a{
     }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
     .timeline:before {
         left: 50%;
     }
@@ -261,3 +261,6 @@ a{
     }
 }
 
+.question-table td {
+    font-family: 'NanumBarunGothic' !important;
+}
